@@ -1,6 +1,10 @@
 <h3 align="center">
-  Github Users React Native
+  Github Users React Native 📱
 </h3>
+
+<p align="center">
+  <img alt="Github Users React Native" src="/githubusers-reactnative.gif">
+</p>
 
 ## 🚀 Instalação e execução
 
