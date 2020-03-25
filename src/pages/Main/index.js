@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Keyboard, ActivityIndicator } from 'react-native';
+import { Keyboard, ActivityIndicator, Alert } from 'react-native';
 import PropTypes from 'prop-types';
 
 import AsyncStorage from '@react-native-community/async-storage';
@@ -55,16 +55,22 @@ export default function Main({ navigation }) {
   async function handleAddUser() {
     setLoading(true);
 
-    const response = await api.get(`/users/${newUser}`);
+    try {
+      const response = await api.get(`/users/${newUser}`);
 
-    const data = {
-      name: response.data.name,
-      login: response.data.login,
-      bio: response.data.bio,
-      avatar: response.data.avatar_url,
-    };
+      const data = {
+        name: response.data.name,
+        login: response.data.login,
+        bio: response.data.bio,
+        avatar: response.data.avatar_url,
+      };
 
-    setUsers([...users, data]);
+      setUsers([...users, data]);
+    } catch (error) {
+      Alert.alert('Erro ao pesquisar', 'O usuário não existe no Github.');
+      console.tron.log(error);
+    }
+
     setNewUser('');
     setLoading(false);
 

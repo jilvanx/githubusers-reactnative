@@ -19,9 +19,10 @@ export default function Routes() {
       }}>
       <Stack.Screen
         name="Home"
+        ß
         component={Main}
         options={{
-          title: 'LinkedIn Users',
+          title: 'Github Users',
         }}
       />
       <Stack.Screen
